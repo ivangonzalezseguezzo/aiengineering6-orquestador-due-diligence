@@ -1,0 +1,16 @@
+# LangChain + LangGraph
+langchain-core>=1.8
+langgraph>=1.2
+
+# Proveedores de LLM (alcanza con el que configures en LLM_PROVIDER)
+langchain-google-genai>=4.4
+langchain-openai>=1.7
+langchain-anthropic>=1.7
+
+# Búsqueda: BM25 local sobre el corpus y búsqueda web opcional (si hay TAVILY_API_KEY)
+rank-bm25>=0.2.2
+langchain-tavily>=0.2
+
+# Utilidades
+pydantic>=2.7
+python-dotenv>=1.0

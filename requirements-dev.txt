@@ -1,0 +1,9 @@
+-r requirements.txt
+pytest>=9.0
+pytest-asyncio>=1.0
+
+# Notebook de la demo (ejecutarlo) y diagrama ASCII del grafo
+ipykernel>=7.0
+nbclient>=0.10
+nbformat>=5.10
+grandalf>=0.8

@@ -1,0 +1,363 @@
+{
+  "startup": "aulaviva",
+  "generado_en": "2026-11-11T18:00:35",
+  "recomendacion": "SIN RECOMENDACIÓN",
+  "pasos_del_supervisor": 5,
+  "intentos": {
+    "investigador": 2,
+    "analista": 1,
+    "critico": 1
+  },
+  "latencia_s": 101.6,
+  "uso_llm": {
+    "por_agente": {
+      "analista": {
+        "llamadas": 3,
+        "tokens_entrada": 7064,
+        "tokens_salida": 440
+      },
+      "critico": {
+        "llamadas": 4,
+        "tokens_entrada": 12510,
+        "tokens_salida": 719
+      },
+      "investigador": {
+        "llamadas": 7,
+        "tokens_entrada": 26475,
+        "tokens_salida": 1111
+      },
+      "supervisor": {
+        "llamadas": 6,
+        "tokens_entrada": 4947,
+        "tokens_salida": 603
+      }
+    },
+    "total": {
+      "llamadas": 20,
+      "tokens_entrada": 50996,
+      "tokens_salida": 2873
+    }
+  },
+  "error": null,
+  "recorrido": [
+    "[paso 1] supervisor → investigador: Busca en el data room y en fuentes de mercado las métricas clave de Aula Viva (usuarios, ingresos, costos de infraestructura y uso de LLM) registrando cada dato con su cita literal.",
+    "           motivo: El proceso recién empieza y la rúbrica muestra que el investigador todavía no entregó datos, por lo que es necesario asignarle la primera tarea.",
+    "    investigador: v1: 3 métricas ancladas, 3 hallazgos, 1 registros rechazados; faltan crecimiento_mrr_mensual_pct, churn_mensual_pct, concentracion_top_cliente_pct, gasto_comercial_mensual_usd, clientes_nuevos_mes, costo_infra_mensual_usd, otros_costos_directos_mensual_usd, burn_neto_mensual_usd, llamadas_llm_mes, tokens_entrada_por_llamada, tokens_salida_por_llamada, precio_entrada_usd_millon, precio_salida_usd_millon",
+    "[paso 2] supervisor → investigador: Buscá en el data room y completá las métricas faltantes: crecimiento_mrr_mensual_pct, churn_mensual_pct, concentracion_top_cliente_pct, gasto_comercial_mensual_usd, clientes_nuevos_mes, costo_infra_mensual_usd, otros_cos…",
+    "           motivo: Faltan métricas clave y llegar al mínimo de 6 requeridas por la rúbrica, por lo que debo enviar nuevamente al investigador a completarlas.",
+    "    investigador: v2: 5 métricas ancladas, 3 hallazgos, 1 registros rechazados; faltan crecimiento_mrr_mensual_pct, churn_mensual_pct, concentracion_top_cliente_pct, gasto_comercial_mensual_usd, clientes_nuevos_mes, costo_infra_mensual_usd, otros_costos_directos_mensual_usd, burn_neto_mensual_usd, llamadas_llm_mes, tokens_entrada_por_llamada, tokens_salida_por_llamada, precio_entrada_usd_millon, precio_salida_usd_millon",
+    "[paso 3] supervisor → analista: Calculá el costo de LLM, los unit economics y el tamaño de mercado utilizando exclusivamente las métricas registradas por el investigador.",
+    "           motivo: El investigador ya agotó o avanzó suficiente y la rúbrica indica que falta el análisis. Como el analista todavía no calculó (punto [x] bloqueante en analisis_vigente), corresponde enviarle la tarea.",
+    "    analista: v1: margen s/d · LTV/CAC s/d · payback s/d m · runway s/d m · score 12,0 (no avanzar); 1 llamadas rechazadas por falta de respaldo",
+    "[paso 4] supervisor → critico: Audita el análisis v1 del analista, contrasta lo declarado con lo calculado, busca letra chica y registra red flags y posibles errores.",
+    "           motivo: El analista ya procesó los datos, pero el crítico todavía no auditó el análisis (punto [ ] en la rúbrica). Debemos enviar al crítico.",
+    "    critico: v1 (auditó el análisis v1): 1 red flags (1 altas), 0 discrepancias declarado/calculado, 0 correcciones nuevas",
+    "[paso 5] supervisor → finalizar",
+    "           motivo: El investigador agotó sus intentos (2/3 pero con 2 búsquedas fallidas registradas en rúbrica) y la investigación tiene una salvedad [!] aceptable. El análisis y la crítica están vigentes y no hay correcciones pendientes, por lo que podemos finalizar el proceso.",
+    "    validador: aprobada (intento 1, 2 advertencias)",
+    "    informe: SIN RECOMENDACIÓN (información insuficiente: faltan 13 métricas clave (crecimiento_mrr_mensual_pct, churn_mensual_pct, concentracion_top_cliente_pct, gasto_comercial_mensual_usd, clientes_nuevos_mes, costo_infra_mensual_usd, otros_costos_directos_mensual_usd, burn_neto_mensual_usd, llamadas_llm_mes, tokens_entrada_por_llamada, tokens_salida_por_llamada, precio_entrada_usd_millon, precio_salida_usd_millon); pedirlas a la startup)"
+  ],
+  "aportes": [
+    {
+      "paso": 1,
+      "agente": "supervisor",
+      "accion": "→ investigador",
+      "detalle": "El proceso recién empieza y la rúbrica muestra que el investigador todavía no entregó datos, por lo que es necesario asignarle la primera tarea."
+    },
+    {
+      "paso": 1,
+      "agente": "investigador",
+      "accion": "investigación",
+      "detalle": "v1: 3 métricas ancladas, 3 hallazgos, 1 registros rechazados; faltan crecimiento_mrr_mensual_pct, churn_mensual_pct, concentracion_top_cliente_pct, gasto_comercial_mensual_usd, clientes_nuevos_mes, costo_infra_mensual_usd, otros_costos_directos_mensual_usd, burn_neto_mensual_usd, llamadas_llm_mes, tokens_entrada_por_llamada, tokens_salida_por_llamada, precio_entrada_usd_millon, precio_salida_usd_millon"
+    },
+    {
+      "paso": 2,
+      "agente": "supervisor",
+      "accion": "→ investigador",
+      "detalle": "Faltan métricas clave y llegar al mínimo de 6 requeridas por la rúbrica, por lo que debo enviar nuevamente al investigador a completarlas."
+    },
+    {
+      "paso": 2,
+      "agente": "investigador",
+      "accion": "investigación",
+      "detalle": "v2: 5 métricas ancladas, 3 hallazgos, 1 registros rechazados; faltan crecimiento_mrr_mensual_pct, churn_mensual_pct, concentracion_top_cliente_pct, gasto_comercial_mensual_usd, clientes_nuevos_mes, costo_infra_mensual_usd, otros_costos_directos_mensual_usd, burn_neto_mensual_usd, llamadas_llm_mes, tokens_entrada_por_llamada, tokens_salida_por_llamada, precio_entrada_usd_millon, precio_salida_usd_millon"
+    },
+    {
+      "paso": 3,
+      "agente": "supervisor",
+      "accion": "→ analista",
+      "detalle": "El investigador ya agotó o avanzó suficiente y la rúbrica indica que falta el análisis. Como el analista todavía no calculó (punto [x] bloqueante en analisis_vigente), corresponde enviarle la tarea."
+    },
+    {
+      "paso": 3,
+      "agente": "analista",
+      "accion": "análisis",
+      "detalle": "v1: margen s/d · LTV/CAC s/d · payback s/d m · runway s/d m · score 12,0 (no avanzar); 1 llamadas rechazadas por falta de respaldo"
+    },
+    {
+      "paso": 4,
+      "agente": "supervisor",
+      "accion": "→ critico",
+      "detalle": "El analista ya procesó los datos, pero el crítico todavía no auditó el análisis (punto [ ] en la rúbrica). Debemos enviar al crítico."
+    },
+    {
+      "paso": 4,
+      "agente": "critico",
+      "accion": "auditoría",
+      "detalle": "v1 (auditó el análisis v1): 1 red flags (1 altas), 0 discrepancias declarado/calculado, 0 correcciones nuevas"
+    },
+    {
+      "paso": 5,
+      "agente": "supervisor",
+      "accion": "→ finalizar",
+      "detalle": "El investigador agotó sus intentos (2/3 pero con 2 búsquedas fallidas registradas en rúbrica) y la investigación tiene una salvedad [!] aceptable. El análisis y la crítica están vigentes y no hay correcciones pendientes, por lo que podemos finalizar el proceso."
+    },
+    {
+      "paso": 5,
+      "agente": "validador",
+      "accion": "validación",
+      "detalle": "aprobada (intento 1, 2 advertencias)"
+    },
+    {
+      "paso": 5,
+      "agente": "informe",
+      "accion": "síntesis",
+      "detalle": "SIN RECOMENDACIÓN (información insuficiente: faltan 13 métricas clave (crecimiento_mrr_mensual_pct, churn_mensual_pct, concentracion_top_cliente_pct, gasto_comercial_mensual_usd, clientes_nuevos_mes, costo_infra_mensual_usd, otros_costos_directos_mensual_usd, burn_neto_mensual_usd, llamadas_llm_mes, tokens_entrada_por_llamada, tokens_salida_por_llamada, precio_entrada_usd_millon, precio_salida_usd_millon); pedirlas a la startup)"
+    }
+  ],
+  "parcelas": {
+    "investigacion": {
+      "version": 2,
+      "metricas": {
+        "mrr_usd": {
+          "metrica": "mrr_usd",
+          "valor": 6200.0,
+          "fuente": "aulaviva/pitch#3",
+          "cita": "MRR de USD 6.200",
+          "ronda": 1
+        },
+        "clientes_activos": {
+          "metrica": "clientes_activos",
+          "valor": 11.0,
+          "fuente": "aulaviva/carta-inversores#2",
+          "cita": "Colegios que pagan una suscripción: 11",
+          "ronda": 1
+        },
+        "caja_usd": {
+          "metrica": "caja_usd",
+          "valor": 150000.0,
+          "fuente": "aulaviva/carta-inversores#3",
+          "cita": "Caja disponible: USD 150.000",
+          "ronda": 1
+        },
+        "clientes_potenciales_tam": {
+          "metrica": "clientes_potenciales_tam",
+          "valor": 38000.0,
+          "fuente": "mercado/edtech-latam#1",
+          "cita": "Colegios secundarios privados en la región: 38.000",
+          "ronda": 2
+        },
+        "porcentaje_sam_pct": {
+          "metrica": "porcentaje_sam_pct",
+          "valor": 12.1,
+          "fuente": "mercado/edtech-latam#1",
+          "cita": "Argentina tiene 4.600 colegios secundarios privados, el 12,1 % del total regional",
+          "ronda": 2
+        }
+      },
+      "hallazgos": [
+        {
+          "tema": "equipo",
+          "afirmacion": "Los fundadores son tres y solo dos trabajan a tiempo completo en la startup.",
+          "fuente": "aulaviva/carta-inversores#4",
+          "cita": "Somos tres fundadores en nuestra primera startup; dos trabajan a tiempo completo"
+        },
+        {
+          "tema": "riesgo",
+          "afirmacion": "Los costos de IA están cubiertos por créditos promocionales hasta marzo de 2027.",
+          "fuente": "aulaviva/carta-inversores#3",
+          "cita": "El costo de IA lo cubren créditos promocionales del proveedor hasta marzo de 2027"
+        },
+        {
+          "tema": "clientes",
+          "afirmacion": "La mayoría de los colegios usa un piloto gratuito de tres meses y todavía no miden churn.",
+          "fuente": "aulaviva/carta-inversores#2",
+          "cita": "Todavía no medimos churn ni costo de adquisición: el equipo está enfocado en producto"
+        }
+      ],
+      "fuentes_consultadas": [
+        "aulaviva/carta-inversores#1",
+        "aulaviva/carta-inversores#2",
+        "aulaviva/carta-inversores#3",
+        "aulaviva/carta-inversores#4",
+        "aulaviva/pitch#1",
+        "aulaviva/pitch#2",
+        "aulaviva/pitch#3",
+        "aulaviva/pitch#4",
+        "aulaviva/pitch#5",
+        "fondo/tesis-de-inversion#1",
+        "mercado/legaltech-latam#3",
+        "mercado/legaltech-latam#2",
+        "mercado/legaltech-latam#4",
+        "mercado/edtech-latam#1",
+        "mercado/contact-centers-latam#2",
+        "mercado/contact-centers-latam#3"
+      ],
+      "reemplazos": [],
+      "rechazos": 1,
+      "correcciones_atendidas": [],
+      "resumen": "Resumen de investigación:\n- Registré métricas de mercado para Aula Viva (TAM de 38.000 colegios y porcentaje SAM de Argentina del 12.1%).\n- No encontré en el data room las métricas de crecimiento, churn, concentración, costos de infraestructura, costos de IA (cubiertos por créditos promocionales hasta marzo de 2027) ni consumo de tokens, ya que la startup declara que aún no mide churn ni costos de adquisición y está enfocada en producto.\n- Encontré contradicciones leves en la tracción: la carta a inversores menciona 11 colegios pagos y 31 en piloto, mientras que el pitch menciona de manera general \"más de 40 colegios\"."
+    },
+    "analisis": {
+      "version": 1,
+      "version_investigacion": 2,
+      "calculos": {
+        "calcular_unit_economics": {
+          "herramienta": "calcular_unit_economics",
+          "entradas": {
+            "mrr_usd": 6200.0,
+            "clientes_activos": 11.0,
+            "caja_usd": 150000.0
+          },
+          "resultado": {
+            "arpa_usd": 563.64,
+            "no_calculables": {
+              "margen_bruto_pct": "faltan los costos directos",
+              "cac_usd": "faltan gasto_comercial_mensual_usd o clientes_nuevos_mes",
+              "ltv_usd": "faltan ARPA, margen bruto o churn_mensual_pct",
+              "payback_meses": "faltan el CAC o el margen por cliente",
+              "runway_meses": "faltan caja_usd o burn_neto_mensual_usd"
+            }
+          }
+        },
+        "calcular_scoring": {
+          "herramienta": "calcular_scoring",
+          "entradas": {
+            "puntaje_equipo": 3,
+            "puntaje_mercado": 3
+          },
+          "resultado": {
+            "score": 12.0,
+            "banda": "no avanzar",
+            "criterios": {
+              "unit_economics": {
+                "puntaje_0_5": 0.0,
+                "peso_pct": 25,
+                "aporte": 0.0
+              },
+              "margen_bruto": {
+                "puntaje_0_5": 0,
+                "peso_pct": 20,
+                "aporte": 0.0
+              },
+              "runway": {
+                "puntaje_0_5": 0,
+                "peso_pct": 15,
+                "aporte": 0.0
+              },
+              "crecimiento": {
+                "puntaje_0_5": 0,
+                "peso_pct": 15,
+                "aporte": 0.0
+              },
+              "equipo": {
+                "puntaje_0_5": 3,
+                "peso_pct": 10,
+                "aporte": 6.0
+              },
+              "mercado": {
+                "puntaje_0_5": 3,
+                "peso_pct": 10,
+                "aporte": 6.0
+              },
+              "concentracion": {
+                "puntaje_0_5": 0,
+                "peso_pct": 5,
+                "aporte": 0.0
+              }
+            },
+            "sin_datos": [
+              "ltv_cac",
+              "payback_meses",
+              "margen_bruto_pct",
+              "runway_meses",
+              "crecimiento_mrr_mensual_pct",
+              "concentracion_top_cliente_pct"
+            ],
+            "justificacion_equipo": "Tres fundadores pero solo dos dedicados a tiempo completo, lo que reduce ligeramente la puntuación.",
+            "justificacion_mercado": "Mercado edtech con TAM definido, pero la falta de métricas avanzadas limita la visibilidad."
+          }
+        }
+      },
+      "rechazos": 1,
+      "correcciones_atendidas": [],
+      "interpretacion": "Con base en las métricas registradas, los cálculos y las herramientas financieras, presento el resumen del análisis para Aula Viva:\n\n- **Margen real y Unit Economics:** El ARPA es de $563.64 USD por cliente activo. No fue posible calcular el margen bruto real, el CAC, el LTV, el payback ni el runway debido a la ausencia de datos sobre costos directos, gasto comercial, churn y burn rate neto. Los costos de IA están cubiertos por créditos promocionales hasta marzo de 2027.\n- **Eficiencia comercial:** Indeterminada por falta de métricas de gasto comercial, clientes nuevos y churn mensual.\n- **Runway:** No calculable por no contar con el dato de burn rate mensual (aunque se dispone de $150,000 USD en caja).\n- **Scoring:** La startup obtuvo un puntaje total de 12/100, clasificándose en la banda \"no avanzar\", fuertemente penalizada por la falta de métricas clave operativas y financieras en el data room."
+    },
+    "critica": {
+      "version": 1,
+      "version_analisis": 1,
+      "red_flags": [
+        {
+          "id": "R1",
+          "titulo": "Dependencia de créditos promocionales para cubrir costos de IA",
+          "severidad": "alta",
+          "explicacion": "Los costos de IA están enmascarados por créditos promocionales temporales, lo que distorsiona el margen bruto real que tendrá la empresa al vencer dichos créditos.",
+          "fuente": "aulaviva/carta-inversores#3",
+          "cita": "El costo de IA lo cubren créditos promocionales del proveedor hasta marzo de 2027",
+          "origen": "critico"
+        }
+      ],
+      "correcciones": [],
+      "discrepancias": [],
+      "resumen": "El análisis identifica adecuadamente que la startup se encuentra en una banda de \"no avanzar\" debido a la falta de métricas clave en el data room. Sin embargo, se detectaron riesgos críticos omitidos, como la alta dependencia de pilotos gratuitos sin seguimiento de churn, costos de IA enmascarados por créditos promocionales y la dedicación parcial de los fundadores. El análisis del equipo es correcto en su conclusión general, pero requiere incorporar estos riesgos en la evaluación cualitativa."
+    },
+    "validacion": {
+      "aprobado": true,
+      "intento": 1,
+      "checks": [
+        {
+          "nombre": "investigacion",
+          "ok": true,
+          "detalle": "5 métricas ancladas a su fuente (mínimo 6) y 3 hallazgos con cita (mínimo 2). (sin más intentos: queda como salvedad)",
+          "responsable": "investigador",
+          "advertencia": true
+        },
+        {
+          "nombre": "metricas_clave",
+          "ok": true,
+          "detalle": "No disponibles en las fuentes tras 2 búsquedas: crecimiento_mrr_mensual_pct, churn_mensual_pct, concentracion_top_cliente_pct, gasto_comercial_mensual_usd, clientes_nuevos_mes, costo_infra_mensual_usd, otros_costos_directos_mensual_usd, burn_neto_mensual_usd, llamadas_llm_mes, tokens_entrada_por_llamada, tokens_salida_por_llamada, precio_entrada_usd_millon, precio_salida_usd_millon.",
+          "responsable": "investigador",
+          "advertencia": true
+        },
+        {
+          "nombre": "correcciones_investigador",
+          "ok": true,
+          "detalle": "Sin correcciones altas pendientes.",
+          "responsable": "investigador",
+          "advertencia": false
+        },
+        {
+          "nombre": "analisis_vigente",
+          "ok": true,
+          "detalle": "Análisis v1 completo y al día.",
+          "responsable": "analista",
+          "advertencia": false
+        },
+        {
+          "nombre": "correcciones_analista",
+          "ok": true,
+          "detalle": "Sin correcciones altas pendientes.",
+          "responsable": "analista",
+          "advertencia": false
+        },
+        {
+          "nombre": "critica_vigente",
+          "ok": true,
+          "detalle": "La crítica v1 auditó el análisis v1.",
+          "responsable": "critico",
+          "advertencia": false
+        }
+      ]
+    }
+  }
+}

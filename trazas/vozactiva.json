@@ -1,0 +1,537 @@
+{
+  "startup": "vozactiva",
+  "generado_en": "2026-11-11T17:57:10",
+  "recomendacion": "NO AVANZAR",
+  "pasos_del_supervisor": 4,
+  "intentos": {
+    "investigador": 1,
+    "analista": 1,
+    "critico": 1
+  },
+  "latencia_s": 97.3,
+  "uso_llm": {
+    "por_agente": {
+      "analista": {
+        "llamadas": 5,
+        "tokens_entrada": 16072,
+        "tokens_salida": 926
+      },
+      "critico": {
+        "llamadas": 5,
+        "tokens_entrada": 22489,
+        "tokens_salida": 1263
+      },
+      "investigador": {
+        "llamadas": 5,
+        "tokens_entrada": 31404,
+        "tokens_salida": 2049
+      },
+      "supervisor": {
+        "llamadas": 4,
+        "tokens_entrada": 3234,
+        "tokens_salida": 354
+      }
+    },
+    "total": {
+      "llamadas": 19,
+      "tokens_entrada": 73199,
+      "tokens_salida": 4592
+    }
+  },
+  "error": null,
+  "recorrido": [
+    "[paso 1] supervisor → investigador: Busca en el data room de VozActiva y en fuentes de mercado las metricas principales de traccion, costos declarados y tamano de mercado, registrando cada dato con su cita literal.",
+    "           motivo: La investigacion esta vacia y la rubrica exige datos iniciales. Mandamos al investigador para registrar las metricas del data room.",
+    "    investigador: v1: 20 métricas ancladas, 4 hallazgos, 1 registros rechazados",
+    "[paso 2] supervisor → analista: Calcula el costo real de los LLM y los unit economics de VozActiva utilizando unicamente las metricas registradas por el investigador en el data room.",
+    "           motivo: La investigacion esta completa y aprobada, pero falta el analisis de unit economics y costos de LLM segun la rubrica.",
+    "    analista: v1: costo LLM USD 16.800/mes (18,7 % del MRR) · margen 41,9 % · LTV/CAC 0,93 · payback 16,6 m · runway 7,4 m · score 41,0 (no avanzar); 2 llamadas rechazadas por falta de respaldo",
+    "[paso 3] supervisor → critico: Audita el análisis v1 del analista, contrasta las métricas calculadas con los datos del investigador, busca letra chica y registra posibles red flags o correcciones.",
+    "           motivo: La rúbrica indica que la crítica no está vigente porque el crítico todavía no auditó el análisis v1. Debemos enviar al crítico para que audite los resultados.",
+    "    critico: v1 (auditó el análisis v1): 4 red flags (4 altas), 2 discrepancias declarado/calculado, 0 correcciones nuevas",
+    "[paso 4] supervisor → finalizar",
+    "           motivo: Todos los pasos obligatorios (investigación, análisis y crítica) se completaron con éxito y la rúbrica de suficiencia está totalmente satisfecha sin puntos bloqueantes [ ].",
+    "    validador: aprobada (intento 1, 0 advertencias)",
+    "    informe: NO AVANZAR (score 41,0/100 (banda: no avanzar); 4 red flags de severidad alta)"
+  ],
+  "aportes": [
+    {
+      "paso": 1,
+      "agente": "supervisor",
+      "accion": "→ investigador",
+      "detalle": "La investigacion esta vacia y la rubrica exige datos iniciales. Mandamos al investigador para registrar las metricas del data room."
+    },
+    {
+      "paso": 1,
+      "agente": "investigador",
+      "accion": "investigación",
+      "detalle": "v1: 20 métricas ancladas, 4 hallazgos, 1 registros rechazados"
+    },
+    {
+      "paso": 2,
+      "agente": "supervisor",
+      "accion": "→ analista",
+      "detalle": "La investigacion esta completa y aprobada, pero falta el analisis de unit economics y costos de LLM segun la rubrica."
+    },
+    {
+      "paso": 2,
+      "agente": "analista",
+      "accion": "análisis",
+      "detalle": "v1: costo LLM USD 16.800/mes (18,7 % del MRR) · margen 41,9 % · LTV/CAC 0,93 · payback 16,6 m · runway 7,4 m · score 41,0 (no avanzar); 2 llamadas rechazadas por falta de respaldo"
+    },
+    {
+      "paso": 3,
+      "agente": "supervisor",
+      "accion": "→ critico",
+      "detalle": "La rúbrica indica que la crítica no está vigente porque el crítico todavía no auditó el análisis v1. Debemos enviar al crítico para que audite los resultados."
+    },
+    {
+      "paso": 3,
+      "agente": "critico",
+      "accion": "auditoría",
+      "detalle": "v1 (auditó el análisis v1): 4 red flags (4 altas), 2 discrepancias declarado/calculado, 0 correcciones nuevas"
+    },
+    {
+      "paso": 4,
+      "agente": "supervisor",
+      "accion": "→ finalizar",
+      "detalle": "Todos los pasos obligatorios (investigación, análisis y crítica) se completaron con éxito y la rúbrica de suficiencia está totalmente satisfecha sin puntos bloqueantes [ ]."
+    },
+    {
+      "paso": 4,
+      "agente": "validador",
+      "accion": "validación",
+      "detalle": "aprobada (intento 1, 0 advertencias)"
+    },
+    {
+      "paso": 4,
+      "agente": "informe",
+      "accion": "síntesis",
+      "detalle": "NO AVANZAR (score 41,0/100 (banda: no avanzar); 4 red flags de severidad alta)"
+    }
+  ],
+  "parcelas": {
+    "investigacion": {
+      "version": 1,
+      "metricas": {
+        "mrr_usd": {
+          "metrica": "mrr_usd",
+          "valor": 90000.0,
+          "fuente": "vozactiva/metricas#1",
+          "cita": "MRR recurrente (contratos mensuales): USD 90.000",
+          "ronda": 1
+        },
+        "clientes_activos": {
+          "metrica": "clientes_activos",
+          "valor": 20.0,
+          "fuente": "vozactiva/metricas#2",
+          "cita": "Clientes con contrato recurrente: 20",
+          "ronda": 1
+        },
+        "crecimiento_mrr_mensual_pct": {
+          "metrica": "crecimiento_mrr_mensual_pct",
+          "valor": 4.0,
+          "fuente": "vozactiva/metricas#3",
+          "cita": "Crecimiento mensual del MRR recurrente (últimos 6 meses): 4 %",
+          "ronda": 1
+        },
+        "churn_mensual_pct": {
+          "metrica": "churn_mensual_pct",
+          "valor": 6.5,
+          "fuente": "vozactiva/metricas#4",
+          "cita": "Churn mensual de clientes recurrentes: 6,5 %",
+          "ronda": 1
+        },
+        "gasto_comercial_mensual_usd": {
+          "metrica": "gasto_comercial_mensual_usd",
+          "valor": 78000.0,
+          "fuente": "vozactiva/finanzas#3",
+          "cita": "Gasto mensual en ventas y marketing: USD 78.000",
+          "ronda": 1
+        },
+        "clientes_nuevos_mes": {
+          "metrica": "clientes_nuevos_mes",
+          "valor": 2.5,
+          "fuente": "vozactiva/metricas#4",
+          "cita": "Clientes recurrentes nuevos por mes (promedio de los últimos 6 meses): 2,5",
+          "ronda": 1
+        },
+        "costo_infra_mensual_usd": {
+          "metrica": "costo_infra_mensual_usd",
+          "valor": 9500.0,
+          "fuente": "vozactiva/finanzas#1",
+          "cita": "Infraestructura cloud (sin incluir el LLM): USD 9.500 por mes",
+          "ronda": 1
+        },
+        "otros_costos_directos_mensual_usd": {
+          "metrica": "otros_costos_directos_mensual_usd",
+          "valor": 26000.0,
+          "fuente": "vozactiva/finanzas#1",
+          "cita": "Otros costos directos totales (soporte más voz y telefonía): USD 26.000 por mes",
+          "ronda": 1
+        },
+        "margen_bruto_declarado_pct": {
+          "metrica": "margen_bruto_declarado_pct",
+          "valor": 74.0,
+          "fuente": "vozactiva/finanzas#2",
+          "cita": "Margen bruto informado: 74 %",
+          "ronda": 1
+        },
+        "burn_neto_mensual_usd": {
+          "metrica": "burn_neto_mensual_usd",
+          "valor": 95000.0,
+          "fuente": "vozactiva/finanzas#4",
+          "cita": "Burn neto mensual: USD 95.000",
+          "ronda": 1
+        },
+        "caja_usd": {
+          "metrica": "caja_usd",
+          "valor": 700000.0,
+          "fuente": "vozactiva/finanzas#4",
+          "cita": "Caja disponible al 31/10/2026: USD 700.000",
+          "ronda": 1
+        },
+        "runway_declarado_meses": {
+          "metrica": "runway_declarado_meses",
+          "valor": 20.0,
+          "fuente": "vozactiva/finanzas#4",
+          "cita": "Runway informado: 20 meses",
+          "ronda": 1
+        },
+        "llamadas_llm_mes": {
+          "metrica": "llamadas_llm_mes",
+          "valor": 2400000.0,
+          "fuente": "vozactiva/tecnologia#2",
+          "cita": "Llamadas al LLM por mes: 2.400.000",
+          "ronda": 1
+        },
+        "tokens_entrada_por_llamada": {
+          "metrica": "tokens_entrada_por_llamada",
+          "valor": 1800.0,
+          "fuente": "vozactiva/tecnologia#2",
+          "cita": "Tokens de entrada promedio por llamada: 1.800",
+          "ronda": 1
+        },
+        "tokens_salida_por_llamada": {
+          "metrica": "tokens_salida_por_llamada",
+          "valor": 250.0,
+          "fuente": "vozactiva/tecnologia#2",
+          "cita": "Tokens de salida promedio por llamada: 250",
+          "ronda": 1
+        },
+        "precio_entrada_usd_millon": {
+          "metrica": "precio_entrada_usd_millon",
+          "valor": 2.5,
+          "fuente": "vozactiva/tecnologia#3",
+          "cita": "Precio por millón de tokens de entrada: USD 2,50",
+          "ronda": 1
+        },
+        "precio_salida_usd_millon": {
+          "metrica": "precio_salida_usd_millon",
+          "valor": 10.0,
+          "fuente": "vozactiva/tecnologia#3",
+          "cita": "Precio por millón de tokens de salida: USD 10",
+          "ronda": 1
+        },
+        "clientes_potenciales_tam": {
+          "metrica": "clientes_potenciales_tam",
+          "valor": 9800.0,
+          "fuente": "mercado/contact-centers-latam#1",
+          "cita": "Centros de contacto con 50 o más posiciones en la región: 9.800",
+          "ronda": 1
+        },
+        "porcentaje_sam_pct": {
+          "metrica": "porcentaje_sam_pct",
+          "valor": 57.1,
+          "fuente": "mercado/contact-centers-latam#1",
+          "cita": "México, Colombia y Argentina concentran 5.600 centros, el 57,1 % del total",
+          "ronda": 1
+        },
+        "concentracion_top_cliente_pct": {
+          "metrica": "concentracion_top_cliente_pct",
+          "valor": 46.0,
+          "fuente": "vozactiva/clientes-y-equipo#1",
+          "cita": "El cliente más grande, TelcoAndina, representa el 46 % del MRR recurrente",
+          "ronda": 1
+        }
+      },
+      "hallazgos": [
+        {
+          "tema": "clientes",
+          "afirmacion": "El cliente más grande, TelcoAndina, representa el 46% del MRR recurrente y su contrato vence el 31/03/2027 pidiendo un 25% de descuento.",
+          "fuente": "vozactiva/clientes-y-equipo#1",
+          "cita": "El cliente más grande, TelcoAndina, representa el 46 % del MRR recurrente"
+        },
+        {
+          "tema": "equipo",
+          "afirmacion": "La CTO Lucía Benítez tiene dedicación parcial del 50% y asesora a otra empresa.",
+          "fuente": "vozactiva/clientes-y-equipo#2",
+          "cita": "Lucía Benítez (CTO): ingeniera de software, con dedicación parcial (50 %)"
+        },
+        {
+          "tema": "tecnologia",
+          "afirmacion": "Dependencia de un proveedor único de LLM sin modelo alternativo probado en producción y con aumento del 40% en tokens de entrada desde 2027.",
+          "fuente": "vozactiva/tecnologia#4",
+          "cita": "Proveedor único de LLM, sin un modelo alternativo probado en producción"
+        },
+        {
+          "tema": "riesgo",
+          "afirmacion": "El runway informado de 20 meses incluye un préstamo puente de USD 1.200.000 no firmado.",
+          "fuente": "vozactiva/finanzas#4",
+          "cita": "Nota 5: el runway informado incluye un préstamo puente de USD 1.200.000 que está en negociación y todavía no fue firmado"
+        }
+      ],
+      "fuentes_consultadas": [
+        "vozactiva/clientes-y-equipo#1",
+        "vozactiva/clientes-y-equipo#2",
+        "vozactiva/clientes-y-equipo#3",
+        "vozactiva/finanzas#1",
+        "vozactiva/finanzas#2",
+        "vozactiva/finanzas#3",
+        "vozactiva/finanzas#4",
+        "vozactiva/metricas#1",
+        "vozactiva/metricas#2",
+        "vozactiva/metricas#3",
+        "vozactiva/metricas#4",
+        "vozactiva/pitch#1",
+        "vozactiva/pitch#2",
+        "vozactiva/pitch#3",
+        "vozactiva/pitch#4",
+        "vozactiva/pitch#5",
+        "vozactiva/tecnologia#1",
+        "vozactiva/tecnologia#2",
+        "vozactiva/tecnologia#3",
+        "vozactiva/tecnologia#4",
+        "vozactiva/tecnologia#5",
+        "mercado/legaltech-latam#1",
+        "mercado/edtech-latam#1",
+        "mercado/contact-centers-latam#1",
+        "fondo/tesis-de-inversion#2"
+      ],
+      "reemplazos": [],
+      "rechazos": 1,
+      "correcciones_atendidas": [],
+      "resumen": "Resumen de investigación para VozActiva (id: `vozactiva`):\n- **Registrado**: Se relevaron y registraron con éxito 19 métricas operativas, financieras y de mercado (incluyendo MRR de USD 90k, 20 clientes activos, costos de infraestructura y LLM, burn rate de USD 95k, caja de USD 700k y tamaño de mercado TAM de 9.800 centros de contacto). También se registraron 4 hallazgos cualitativos clave.\n- **No encontrado**: `ticket_anual_usd` no se especifica de forma directa como una métrica cerrada en los documentos (aunque se puede derivar dividiendo el MRR recurrente por clientes activos, no figura con cita literal como tal).\n- **Contradicciones / Notas**: El pitch y el estado de resultados combinan pilotos pagos y MRR recurrente reportando un MRR total de USD 120.000 y 26 clientes, mientras que las métricas operativas aclaran que el MRR estrictamente recurrente es de USD 90.000 con 20 clientes. Además, el runway declarado de 20 meses incluye un préstamo puente no firmado de USD 1.200.000."
+    },
+    "analisis": {
+      "version": 1,
+      "version_investigacion": 1,
+      "calculos": {
+        "calcular_costo_llm": {
+          "herramienta": "calcular_costo_llm",
+          "entradas": {
+            "llamadas_llm_mes": 2400000.0,
+            "tokens_entrada_por_llamada": 1800.0,
+            "tokens_salida_por_llamada": 250.0,
+            "precio_entrada_usd_millon": 2.5,
+            "precio_salida_usd_millon": 10.0,
+            "mrr_usd": 90000.0,
+            "multiplicador_uso": 1.0,
+            "variacion_precio_pct": 0.0
+          },
+          "resultado": {
+            "costo_llm_mensual_usd": 16800.0,
+            "costo_entrada_usd": 10800.0,
+            "costo_salida_usd": 6000.0,
+            "costo_por_llamada_usd": 0.007,
+            "costo_llm_pct_mrr": 18.67
+          }
+        },
+        "calcular_unit_economics": {
+          "herramienta": "calcular_unit_economics",
+          "entradas": {
+            "mrr_usd": 90000.0,
+            "clientes_activos": 20.0,
+            "churn_mensual_pct": 6.5,
+            "gasto_comercial_mensual_usd": 78000.0,
+            "clientes_nuevos_mes": 2.5,
+            "costo_llm_mensual_usd": 16800.0,
+            "costo_infra_mensual_usd": 9500.0,
+            "otros_costos_directos_mensual_usd": 26000.0,
+            "burn_neto_mensual_usd": 95000.0,
+            "caja_usd": 700000.0
+          },
+          "resultado": {
+            "arpa_usd": 4500.0,
+            "margen_bruto_pct": 41.89,
+            "costos_directos_mensual_usd": 52300.0,
+            "cac_usd": 31200.0,
+            "margen_mensual_por_cliente_usd": 1885.0,
+            "ltv_usd": 29000.0,
+            "ltv_cac": 0.93,
+            "payback_meses": 16.6,
+            "runway_meses": 7.4
+          }
+        },
+        "calcular_scoring": {
+          "herramienta": "calcular_scoring",
+          "entradas": {
+            "ltv_cac": 0.93,
+            "payback_meses": 16.6,
+            "margen_bruto_pct": 41.89,
+            "runway_meses": 7.4,
+            "crecimiento_mrr_mensual_pct": 4.0,
+            "concentracion_top_cliente_pct": 46.0,
+            "puntaje_equipo": 2,
+            "puntaje_mercado": 3
+          },
+          "resultado": {
+            "score": 41.0,
+            "banda": "no avanzar",
+            "criterios": {
+              "unit_economics": {
+                "puntaje_0_5": 2.0,
+                "peso_pct": 25,
+                "aporte": 10.0
+              },
+              "margen_bruto": {
+                "puntaje_0_5": 2,
+                "peso_pct": 20,
+                "aporte": 8.0
+              },
+              "runway": {
+                "puntaje_0_5": 2,
+                "peso_pct": 15,
+                "aporte": 6.0
+              },
+              "crecimiento": {
+                "puntaje_0_5": 2,
+                "peso_pct": 15,
+                "aporte": 6.0
+              },
+              "equipo": {
+                "puntaje_0_5": 2,
+                "peso_pct": 10,
+                "aporte": 4.0
+              },
+              "mercado": {
+                "puntaje_0_5": 3,
+                "peso_pct": 10,
+                "aporte": 6.0
+              },
+              "concentracion": {
+                "puntaje_0_5": 1,
+                "peso_pct": 5,
+                "aporte": 1.0
+              }
+            },
+            "sin_datos": [],
+            "justificacion_equipo": "La CTO tiene dedicación parcial (50%), lo cual es un riesgo importante para una startup de IA.",
+            "justificacion_mercado": "El mercado de contact centers en LATAM es grande, pero la competencia y la alta concentración limitan el atractivo."
+          }
+        }
+      },
+      "rechazos": 2,
+      "correcciones_atendidas": [],
+      "interpretacion": "Como analista financiero, he procesado las métricas registradas para **VozActiva** a través de las herramientas oficiales. \n\n### Resumen de Resultados Financieros y Unit Economics\n\n- **Costo de LLM:** El costo mensual asciende a **$16,800 USD**, lo que representa un **18.67%** del MRR.\n- **Margen Bruto Real:** Al incorporar los costos de infraestructura, otros costos directos y el consumo real de LLM, el margen bruto real se reduce al **41.89%** (muy por debajo del 74% declarado).\n- **Eficiencia Comercial:** El CAC se ubica en **$31,200 USD**, con un LTV de **$29,000 USD**, arrojando un ratio **LTV/CAC de 0.93** y un **payback de 16.6 meses**.\n- **Runway:** Con una caja de $700,000 USD y un burn neto mensual de $95,000 USD, el runway real es de **7.4 meses** (el valor declarado de 20 meses contemplaba un préstamo puente no firmado).\n- **Scoring de Inversión:** La startup obtiene un puntaje de **41/100**, ubicándose en la banda de **\"no avanzar\"**. Esto refleja unit economics débiles (LTV/CAC menor a 1), un margen bruto erosionado por los costos de IA, alta concentración de clientes (46% en un solo cliente) y un runway crítico."
+    },
+    "critica": {
+      "version": 1,
+      "version_analisis": 1,
+      "red_flags": [
+        {
+          "id": "R1",
+          "titulo": "Runway artificial basado en financiamiento no firmado",
+          "severidad": "alta",
+          "explicacion": "El runway real es de 7.4 meses; contar con un préstamo no firmado distorsiona la salud financiera real de la empresa.",
+          "fuente": "vozactiva/finanzas#4",
+          "cita": "Nota 5: el runway informado incluye un préstamo puente de USD 1.200.000 que está en negociación y todavía no fue firmado",
+          "origen": "critico"
+        },
+        {
+          "id": "R2",
+          "titulo": "Alta concentración de clientes y riesgo de churn o descuento en cuenta principal",
+          "severidad": "alta",
+          "explicacion": "Una pérdida o reducción de este cliente impactaría drásticamente la supervivencia y los ingresos de la startup.",
+          "fuente": "vozactiva/clientes-y-equipo#1",
+          "cita": "El cliente más grande, TelcoAndina, representa el 46 % del MRR recurrente.\n- Los 3 clientes más grandes suman el 71 % del MRR recurrente.\n- El contrato con TelcoAndina vence el 31/03/2027 y está en renegociación: el cliente pide un 25 % de descuento",
+          "origen": "critico"
+        },
+        {
+          "id": "K-margen_bruto_declarado_pct",
+          "titulo": "Margen bruto declarado inflado",
+          "severidad": "alta",
+          "explicacion": "Margen bruto declarado 74,0 % vs. calculado con todos los costos directos 41,9 % (32,1 puntos de diferencia).",
+          "fuente": "vozactiva/finanzas#2",
+          "cita": "Margen bruto informado: 74 %",
+          "origen": "contraste"
+        },
+        {
+          "id": "K-runway_declarado_meses",
+          "titulo": "Runway declarado mayor al real",
+          "severidad": "alta",
+          "explicacion": "Runway declarado 20 meses vs. 7,4 meses con la caja y el burn actuales.",
+          "fuente": "vozactiva/finanzas#4",
+          "cita": "Runway informado: 20 meses",
+          "origen": "contraste"
+        }
+      ],
+      "correcciones": [],
+      "discrepancias": [
+        {
+          "metrica_declarada": "margen_bruto_declarado_pct",
+          "declarado": 74.0,
+          "calculado": 41.89,
+          "severidad": "alta",
+          "descripcion": "Margen bruto declarado 74,0 % vs. calculado con todos los costos directos 41,9 % (32,1 puntos de diferencia)."
+        },
+        {
+          "metrica_declarada": "runway_declarado_meses",
+          "declarado": 20.0,
+          "calculado": 7.4,
+          "severidad": "alta",
+          "descripcion": "Runway declarado 20 meses vs. 7,4 meses con la caja y el burn actuales."
+        }
+      ],
+      "resumen": "El análisis del equipo es sólido al detectar las discrepancias principales, como el margen bruto real de 41.9% frente al 74% declarado y un runway real crítico de 7.4 meses (descartando el préstamo no firmado). Se identificaron como riesgos clave la alta concentración de clientes (46% en TelcoAndina), la dependencia de un único proveedor de LLM y la dedicación parcial de la CTO. El análisis no requiere correcciones adicionales en las métricas del investigador y respalda adecuadamente la recomendación de no avanzar."
+    },
+    "validacion": {
+      "aprobado": true,
+      "intento": 1,
+      "checks": [
+        {
+          "nombre": "investigacion",
+          "ok": true,
+          "detalle": "20 métricas ancladas a su fuente (mínimo 6) y 4 hallazgos con cita (mínimo 2).",
+          "responsable": "investigador",
+          "advertencia": false
+        },
+        {
+          "nombre": "metricas_clave",
+          "ok": true,
+          "detalle": "Todas las métricas clave están registradas.",
+          "responsable": "investigador",
+          "advertencia": false
+        },
+        {
+          "nombre": "correcciones_investigador",
+          "ok": true,
+          "detalle": "Sin correcciones altas pendientes.",
+          "responsable": "investigador",
+          "advertencia": false
+        },
+        {
+          "nombre": "analisis_vigente",
+          "ok": true,
+          "detalle": "Análisis v1 completo y al día.",
+          "responsable": "analista",
+          "advertencia": false
+        },
+        {
+          "nombre": "correcciones_analista",
+          "ok": true,
+          "detalle": "Sin correcciones altas pendientes.",
+          "responsable": "analista",
+          "advertencia": false
+        },
+        {
+          "nombre": "critica_vigente",
+          "ok": true,
+          "detalle": "La crítica v1 auditó el análisis v1.",
+          "responsable": "critico",
+          "advertencia": false
+        }
+      ]
+    }
+  }
+}
